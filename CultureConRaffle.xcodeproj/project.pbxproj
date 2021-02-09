@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		196597B925D328E7008F8FBF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196597B825D328E7008F8FBF /* main.swift */; };
+		19EBCC3625D32A5E003FFC1E /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBCC3525D32A5E003FFC1E /* Algorithms */; };
+		19EBCC3A25D32A8D003FFC1E /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBCC3925D32A8D003FFC1E /* ArgumentParser */; };
+		19EBCC3E25D32ABB003FFC1E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBCC3D25D32ABB003FFC1E /* CryptoSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19EBCC3A25D32A8D003FFC1E /* ArgumentParser in Frameworks */,
+				19EBCC3625D32A5E003FFC1E /* Algorithms in Frameworks */,
+				19EBCC3E25D32ABB003FFC1E /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,11 @@
 			dependencies = (
 			);
 			name = CultureConRaffle;
+			packageProductDependencies = (
+				19EBCC3525D32A5E003FFC1E /* Algorithms */,
+				19EBCC3925D32A8D003FFC1E /* ArgumentParser */,
+				19EBCC3D25D32ABB003FFC1E /* CryptoSwift */,
+			);
 			productName = CultureConRaffle;
 			productReference = 196597B525D328E7008F8FBF /* CultureConRaffle */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +116,11 @@
 				Base,
 			);
 			mainGroup = 196597AC25D328E7008F8FBF;
+			packageReferences = (
+				19EBCC3425D32A5E003FFC1E /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				19EBCC3825D32A8D003FFC1E /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				19EBCC3C25D32ABB003FFC1E /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+			);
 			productRefGroup = 196597B625D328E7008F8FBF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,6 +301,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		19EBCC3425D32A5E003FFC1E /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+		19EBCC3825D32A8D003FFC1E /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+		19EBCC3C25D32ABB003FFC1E /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		19EBCC3525D32A5E003FFC1E /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19EBCC3425D32A5E003FFC1E /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		19EBCC3925D32A8D003FFC1E /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19EBCC3825D32A8D003FFC1E /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		19EBCC3D25D32ABB003FFC1E /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19EBCC3C25D32ABB003FFC1E /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 196597AD25D328E7008F8FBF /* Project object */;
 }
