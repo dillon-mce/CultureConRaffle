@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		196597B925D328E7008F8FBF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196597B825D328E7008F8FBF /* main.swift */; };
+		1996CDDA25D35FFD00D9B419 /* PermutationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1996CDD925D35FFD00D9B419 /* PermutationChecker.swift */; };
 		19EBCC3625D32A5E003FFC1E /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBCC3525D32A5E003FFC1E /* Algorithms */; };
 		19EBCC3A25D32A8D003FFC1E /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBCC3925D32A8D003FFC1E /* ArgumentParser */; };
 		19EBCC3E25D32ABB003FFC1E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBCC3D25D32ABB003FFC1E /* CryptoSwift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		196597B525D328E7008F8FBF /* CultureConRaffle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CultureConRaffle; sourceTree = BUILT_PRODUCTS_DIR; };
 		196597B825D328E7008F8FBF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1996CDD925D35FFD00D9B419 /* PermutationChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermutationChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				196597B825D328E7008F8FBF /* main.swift */,
+				1996CDD925D35FFD00D9B419 /* PermutationChecker.swift */,
 			);
 			path = CultureConRaffle;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1996CDDA25D35FFD00D9B419 /* PermutationChecker.swift in Sources */,
 				196597B925D328E7008F8FBF /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

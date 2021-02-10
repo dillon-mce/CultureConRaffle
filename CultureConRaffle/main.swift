@@ -6,28 +6,67 @@
 //
 
 import Algorithms
-import CryptoSwift
+import ArgumentParser
 import Foundation
 
-let hash = "zdVljhHnF+CnhphNzQWHRQ=="
-let email = "dillon.mcelhinney@ibotta.com"
+enum GlobalValues {
+    static var startTime = CFAbsoluteTimeGetCurrent()
+    static var email = ""
+    static var hash = ""
+}
 
-let alphabet = "abcdefghijklmnopqrstuvwxyz1234567890"
-var combinations = 0
-let startTime = CFAbsoluteTimeGetCurrent()
-alphabet.map(String.init).combinations(ofCount: 5).forEach { combo in
-    combinations += 1
-    combo.permutations().forEach { permutation in
-        autoreleasepool {
-            let raffle = permutation.joined()
-            if let test = (email + raffle).bytes.md5().toBase64(),
-               test == hash {
-                print("Found it!")
-                print("The correct raffle is \(raffle)")
+final class RaffleFinder: ParsableCommand {
+
+    @Option(name: .shortAndLong, help: "The number of threads you want to use")
+    var threads: Int = 1
+
+    @Argument(help: "The email you want to use")
+    var email: String
+
+    @Argument(help: "The hashed string you want to check against")
+    var hash: String
+
+    public func run() throws {
+        guard threads > 0 else { throw RaffleError.invalidThreadCount }
+
+        logGlobalValues()
+
+        var combinations = makeCombinations()
+        let checkers = (1...threads).map { number in
+            PermutationChecker(number: number) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let raffle):
+                        print("The correct raffle code is: \(raffle)")
+                        print("Found it in \(CFAbsoluteTimeGetCurrent() - GlobalValues.startTime) seconds!")
+                        CoreFoundation.exit(0)
+                    case .failure(let checker):
+                        checker?.check(next: combinations.next())
+                    }
+                }
             }
         }
+        checkers.forEach { $0.check(next: combinations.next()) }
+
+        dispatchMain()
     }
-    if combinations % 10000 == 0 {
-        print("Checked \(combinations) combinations - \(CFAbsoluteTimeGetCurrent() - startTime) sec")
+
+    private func logGlobalValues() {
+        GlobalValues.startTime = CFAbsoluteTimeGetCurrent()
+        GlobalValues.email = email
+        GlobalValues.hash = hash
+    }
+
+    private func makeCombinations() -> Combinations<[String]>.Iterator {
+        "abcdefghijklmnopqrstuvwxyz1234567890"
+            .map(String.init)
+            .combinations(ofCount: 5)
+            .makeIterator()
     }
 }
+
+enum RaffleError: Swift.Error {
+    case invalidThreadCount
+}
+
+RaffleFinder.main()
